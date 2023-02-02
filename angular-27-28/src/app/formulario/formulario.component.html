@@ -1,0 +1,28 @@
+<h2 class="text-center mt-5">Login</h2>
+<section class="col-3 container-sm">
+  <form>
+    <section class="form-group m-3">
+      <label for="user">Username</label>
+      <input type="text" class="form-control" name="user" [(ngModel)]="model.username" required #username="ngModel">
+      <section *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+        <section *ngIf="username.errors?.['required']">
+          El usuario es requerido
+        </section>
+      </section>
+    </section>
+
+    <section class="form-group m-3">
+      <label for="pass">Password</label>
+      <input type="password" class="form-control" name="pass" [(ngModel)]="model.password" required minlength="4"
+        #password="ngModel">
+      <section *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+        <section *ngIf="password.errors?.['required']">
+          El password es requerido
+        </section>
+      </section>
+    </section>
+    <section class="form-group m-3">
+      <input type="button" class="btn btn-primary" id="btnEnviar" value="Enviar" (click)="Logearse()">
+    </section>
+  </form>
+</section>
